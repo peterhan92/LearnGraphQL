@@ -5,7 +5,7 @@ and
 Enter GraphQL Queries
 
 # CREATE ORGANIZATION
-mutation {
+example: mutation {
  	addOrganization(name: "Econify") {
     id,
 		name,
@@ -20,7 +20,7 @@ mutation {
   }
 }
 
-# READ ORG
+# READ ORGexample: 
 {
   organization(id: "5a2e68cdaf7e068a989a95a3") {
     id,
@@ -39,7 +39,7 @@ mutation {
 }
 
 # EDIT ORGANIZATION
-mutation {
+example: mutation {
  	editOrganization(id: "5a2e68cdaf7e068a989a95a3", name: "Dropbox") {
     id,
     name,
@@ -57,14 +57,14 @@ mutation {
 }
 
 # DELETE ORGANIZATION
-mutation {
+example: mutation {
  	deleteOrganization(id: "5a2e68cdaf7e068a989a95a3") {
     id
   }
 }
 
 # CREATE LOCATION
-mutation {
+example: mutation {
  	addLocation(name: "Workspace", address: "Manhattan, NY", organizationId: "5a2e68cdaf7e068a989a95a3") {
     id,
 		name,
@@ -80,7 +80,7 @@ mutation {
   }
 }
 
-# READ LOCATION
+# READ LOCATIONexample: 
 {
   location(id: "5a2e68e8af7e068a989a95a4") {
     id,
@@ -98,7 +98,7 @@ mutation {
 }
 
 # EDIT LOCATION
-mutation {
+example: mutation {
   editLocation(id: "5a2e68e8af7e068a989a95a4" organizationId: "5a2e55998fd13a8513184920") {
     id,
 		name,
@@ -116,7 +116,7 @@ mutation {
 
 
 # DELETE LOCATION 
-mutation {
+example: mutation {
  	deleteLocation(id: "5a2e68e8af7e068a989a95a4") {
     id,
 		name,
@@ -126,7 +126,7 @@ mutation {
 
 
 # CREATE EVENT
-mutation {
+example: mutation {
  	addEvent(name: "First Meet Up", dateTime: "11/28/17 - 18:00:00", description: "Learn, Code and Eat Pizza", organizationId: "5a2e68cdaf7e068a989a95a3") {
     id,
 		name,
@@ -141,7 +141,7 @@ mutation {
   }
 }
 
-# READ EVENT
+# READ EVENTexample: 
 {
   event(id: "5a2e695daf7e068a989a95a5") {
      id,
@@ -158,7 +158,7 @@ mutation {
 }
 
 # EDIT EVENT
-mutation {
+example: mutation {
   editEvent(id: "5a2e695daf7e068a989a95a5", name: "Meet Up 1", dateTime: "11/28/17 - 18:00:00", description: "Learn, Code, and Eat pizza") {
     id,
      name,
@@ -175,7 +175,7 @@ mutation {
 
 
 # DELETE EVENT 
-mutation {
+example: mutation {
  	deleteEvent(id: "5a2e695daf7e068a989a95a5") {
     id,
 		name
