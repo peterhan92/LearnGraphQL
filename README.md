@@ -80,7 +80,7 @@ mutation {
   }
 }
 
-#READ LOCATION
+# READ LOCATION
 {
   location(id: "5a2e68e8af7e068a989a95a4") {
     id,
@@ -97,7 +97,7 @@ mutation {
   }
 }
 
-#EDIT LOCATION
+# EDIT LOCATION
 mutation {
   editLocation(id: "5a2e68e8af7e068a989a95a4" organizationId: "5a2e55998fd13a8513184920") {
     id,
@@ -115,7 +115,7 @@ mutation {
 }
 
 
-#DELETE LOCATION 
+# DELETE LOCATION 
 mutation {
  	deleteLocation(id: "5a2e68e8af7e068a989a95a4") {
     id,
@@ -125,7 +125,7 @@ mutation {
 }
 
 
-#CREATE EVENT
+# CREATE EVENT
 mutation {
  	addEvent(name: "First Meet Up", dateTime: "11/28/17 - 18:00:00", description: "Learn, Code and Eat Pizza", organizationId: "5a2e68cdaf7e068a989a95a3") {
     id,
@@ -141,7 +141,7 @@ mutation {
   }
 }
 
-#READ EVENT
+# READ EVENT
 {
   event(id: "5a2e695daf7e068a989a95a5") {
      id,
@@ -157,7 +157,7 @@ mutation {
   }
 }
 
-#EDIT EVENT
+# EDIT EVENT
 mutation {
   editEvent(id: "5a2e695daf7e068a989a95a5", name: "Meet Up 1", dateTime: "11/28/17 - 18:00:00", description: "Learn, Code, and Eat pizza") {
     id,
@@ -174,7 +174,7 @@ mutation {
 }
 
 
-#DELETE EVENT 
+# DELETE EVENT 
 mutation {
  	deleteEvent(id: "5a2e695daf7e068a989a95a5") {
     id,
