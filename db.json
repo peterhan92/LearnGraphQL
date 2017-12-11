@@ -1,0 +1,68 @@
+{
+  "organizations": [
+    {
+      "id": 1,
+      "name": "google",
+      "createdAt": "now",
+      "updatedAt": "later"
+    },
+    {
+      "id": 2,
+      "name": "apple",
+      "createdAt": "now",
+      "updatedAt": "later"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "manhattan",
+      "latitude": "1.1",
+      "longitude": "1.2",
+      "createdAt": "now",
+      "updatedAt": "later",
+      "organizationId": 1
+    },
+    {
+      "id": 2,
+      "name": "queens",
+      "latitude": "1.3",
+      "longitude": "1.4",
+      "createdAt": "now",
+      "updatedAt": "later",
+      "organizationId": 1
+    },
+    {
+      "name": "Meet Up 3",
+      "address": "Brooklyn, NY",
+      "id": 4
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "meet up 1",
+      "dateTime": "11/12/18 12:00AM",
+      "description": "the best meetup",
+      "createdAt": "now",
+      "updatedAt": "later",
+      "organizationId": 1
+    },
+    {
+      "id": 2,
+      "name": "meet up 2",
+      "dateTime": "11/13/18 12:00AM",
+      "description": "the second best meetup",
+      "createdAt": "now",
+      "updatedAt": "later",
+      "organizationId": 1
+    },
+    {
+      "name": "Meet Up 3",
+      "dateTime": "11/12/18 12:00AM",
+      "description": "Coding",
+      "id": 3,
+      "organizationId": "1"
+    }
+  ]
+}
