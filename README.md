@@ -20,8 +20,8 @@ example: mutation {
   }
 }
 
-# READ ORGexample: 
-{
+# READ ORG
+example: {
   organization(id: "5a2e68cdaf7e068a989a95a3") {
     id,
     name,
@@ -80,8 +80,8 @@ example: mutation {
   }
 }
 
-# READ LOCATIONexample: 
-{
+# READ LOCATION
+example: {
   location(id: "5a2e68e8af7e068a989a95a4") {
     id,
 		name,
@@ -141,8 +141,8 @@ example: mutation {
   }
 }
 
-# READ EVENTexample: 
-{
+# READ EVENT
+example: {
   event(id: "5a2e695daf7e068a989a95a5") {
      id,
      name,
