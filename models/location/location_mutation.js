@@ -9,6 +9,7 @@ const Organization = mongoose.model('organization');
 const Location = mongoose.model('location');
 const OrganizationType = require('../organization/organization_type');
 const LocationType = require('./location_type');
+let googlePlaces = require('./google_places');
 
 exports.add = {
   type: LocationType,
@@ -17,16 +18,19 @@ exports.add = {
     address: { type: new GraphQLNonNull(GraphQLString) },
     organizationId: { type: GraphQLID }
   },
-  resolve(parentValue, { name, address, organizationId}) {
-    let currentDateTime = new Date().today() + " - " + new Date().timeNow();
-    let newLocation = new Location({ name, address, createdAt: currentDateTime, organizationId })
-    Organization.findById(organizationId, (err, org) => {
-      if (org) {
-        org.locations.push(newLocation);
-        org.save(newLocation);
-      }
-    })
-    return (newLocation.save());
+  async resolve(parentValue, { name, address, organizationId}) {
+    await googlePlaces.convertToLatLng(address, next)
+    async function next(location) {
+      let currentDateTime = new Date().today() + " - " + new Date().timeNow();
+      let newLocation = new Location({ name, latitude: location.lat, longitude: location.lng, address, createdAt: currentDateTime, organizationId })
+      Organization.findById(organizationId, (err, org) => {
+        if (org) {
+          org.locations.push(newLocation);
+          org.save(newLocation);
+        }
+      })
+      return await newLocation.save();
+    }
   }
 }
 
@@ -38,25 +42,10 @@ exports.edit = {
     address: { type: GraphQLString },
     organizationId: { type: GraphQLID }
   },
-  resolve(parentValue, { id, name, address, organizationId}) {
+  async resolve(parentValue, args) {
     let currentDateTime = new Date().today() + " - " + new Date().timeNow();
-    return Location.findById(id, (err, location) => {
-      if (err) { 
-        return Error('No Location Found');
-      } else {
-        if (name) {
-          location.name = name;
-        }
-        if (address) {
-          location.address = address;
-        }
-        if (organizationId) {
-          location.organizationId = organizationId;
-        }
-        location.updatedAt = currentDateTime;
-        location.save();
-      }
-    })
+    await Location.findByIdAndUpdate(args.id, { ...args, updatedAt: currentDateTime } );
+    return Location.findById(args.id);
   }
 }
 

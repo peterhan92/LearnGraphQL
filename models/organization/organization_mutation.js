@@ -25,17 +25,10 @@ exports.edit = {
     id: { type: new GraphQLNonNull(GraphQLID) },
     name: { type: new GraphQLNonNull(GraphQLString) }
   },
-  resolve(parentValue, { id, name }) {
-    let dateTime = new Date().today() + " - " + new Date().timeNow();
-    return Organization.findById(id, (err, org) => {
-      if (err) { 
-        return Error('No Organization Found');
-      } else {
-        org.name = name;
-        org.updatedAt = dateTime;
-        org.save();
-      }
-    })
+  async resolve(parentValue, args) {
+    let currentDateTime = new Date().today() + " - " + new Date().timeNow();
+    await Organization.findByIdAndUpdate(args.id, { ...args, updatedAt: currentDateTime } );
+    return Organization.findById(args.id);
   }
 }
 

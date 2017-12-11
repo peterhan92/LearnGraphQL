@@ -4,6 +4,8 @@ const expressGraphQL = require('express-graphql');
 const mongoose = require('mongoose');
 const schema = require('./schema/schema');
 
+require('dotenv').config({ path: 'variables.env' });
+
 const app = express();
 
 const MONGO_URI = 'mongodb://phan:jpak1014@ds135876.mlab.com:35876/econify-graphql'

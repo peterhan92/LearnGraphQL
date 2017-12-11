@@ -40,28 +40,10 @@ exports.edit = {
     description: { type: GraphQLString },
     organizationId: { type: GraphQLID }
   },
-  resolve(parentValue, { id, name, dateTime, description, organizationId }) {
+  async resolve(parentValue, args) {
     let currentDateTime = new Date().today() + " - " + new Date().timeNow();
-    return Event.findById(id, (err, event) => {
-      if (err) { 
-        return Error('No Event Found');
-      } else {
-        if (name) {
-          event.name = name;
-        }
-        if (dateTime) {
-          event.dateTime = dateTime;
-        }
-        if (description) {
-          event.description = description;
-        }
-        if (organizationId) {
-          event.organizationId = organizationId;
-        }
-        event.updatedAt = currentDateTime;
-        event.save();
-      }
-    })
+    await Event.findByIdAndUpdate(args.id, { ...args, updatedAt: currentDateTime } );
+    return Event.findById(args.id);
   }
 }
 

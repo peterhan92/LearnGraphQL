@@ -4,7 +4,6 @@ const {
   GraphQLObjectType,
   GraphQLList,
   GraphQLID,
-  GraphQLFloat,
   GraphQLString
 } = graphql;
 const Organization = mongoose.model('organization');
@@ -16,8 +15,8 @@ const LocationType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     address: { type: GraphQLString },
-    latitude: { type: GraphQLFloat },
-    longitude: { type: GraphQLFloat },
+    latitude: { type: GraphQLString },
+    longitude: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString },
     organization: {
